@@ -1,0 +1,4 @@
+header .bg-body-tertiary {
+    background-color: var(--primary-color)!important;
+    color:var(--tertiary-color);
+}

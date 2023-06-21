@@ -1,0 +1,8 @@
+
+header{
+    background-color: var(--primary-color);
+    color:var(--tertiary-color);
+    position: sticky!important;
+    top: 0;
+    z-index: 10;
+}
