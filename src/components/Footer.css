@@ -1,0 +1,25 @@
+footer{
+    background-color: var(--primary-color);
+    color:var(--tertiary-color)
+}
+footer .slogan{
+    max-width:195px ;
+}
+
+footer .slogan span{
+    font-weight:bold;
+}
+
+footer a{
+    color:var(--tertiary-color);
+    font-weight:bold;
+}
+footer h5{
+    margin: 13px 0px;
+}
+
+@media only screen and (max-width: 767px) {
+    footer .contact{
+        padding: 40px 0px 25px;
+    }
+}
