@@ -3,10 +3,13 @@ import './Header.css';
 
 
 function Header(){
+
     return(
         <header >
-            <div>
-                <p>soluciones.auditivas@solucionesauditivas.com.pa</p>
+            <div className="header-email ">
+                <div className="container py-2">
+                    <p >soluciones.auditivas@solucionesauditivas.com.pa</p>
+                </div>
             </div>
             <NavbarHeader/>
 

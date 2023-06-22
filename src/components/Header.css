@@ -2,7 +2,16 @@
 header{
     background-color: var(--primary-color);
     color:var(--tertiary-color);
-    position: sticky!important;
-    top: 0;
+    position: sticky;
+    top: 0px;
     z-index: 10;
+}
+
+header .header-email{
+    --tertiary-color: 245,245,245;
+    border-bottom: 1px solid rgba(var(--tertiary-color), 0.3);
+}
+
+header p{
+    margin: 0;
 }

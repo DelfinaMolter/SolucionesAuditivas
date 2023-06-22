@@ -10,8 +10,10 @@ function App() {
   return (
     <>
       <Header/>
-      <CarouselSection/>
-      <GoogleSection/>
+      <main>
+        <CarouselSection/>
+        <GoogleSection/>
+      </main>
       <Footer/>
     </>
   );
