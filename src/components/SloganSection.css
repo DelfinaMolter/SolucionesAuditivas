@@ -1,0 +1,50 @@
+.slogan .box-slogan{
+    width: 100%;
+    position: relative;
+}
+.slogan .box-slogan img{
+    width: 100%;
+}
+
+.slogan .box-slogan h1{
+    color: var(--tertiary-color);
+    font-weight:normal;
+    position:absolute;
+    top:50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    max-width: 300px;
+    line-height: 52px;
+    letter-spacing: 2.4px;
+}
+.slogan .box-slogan h1 span{
+    font-weight: bold;
+}
+
+
+
+@media only screen and  (max-width: 991px) {
+    .slogan .box-slogan h1{
+        left: 40%;
+        line-height: 45px;
+        letter-spacing: 2px;
+
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    .slogan .box-slogan h1{
+        line-height: 35px;
+        letter-spacing: 2px;
+    }
+}
+
+@media only screen and  (max-width: 450px) {
+    .slogan .box-slogan h1{
+        left: 30%;
+        transform: translate(-30%, -50%);
+        line-height: 35px;
+        letter-spacing: 2px;
+    }
+}

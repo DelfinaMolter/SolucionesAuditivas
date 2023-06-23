@@ -3,8 +3,6 @@ header .bg-body-tertiary {
     color:var(--tertiary-color);
 }
 
-
-
 header .nav-link{
     color: var(--tertiary-color);
     font-weight: bold;
@@ -12,9 +10,11 @@ header .nav-link{
     transition: all 0.5s;
 }
 
-header .nav-link:hover, header .nav-link:focus{
-    color: var(--secondary-color);
+
+header .navbar-collapse .nav-link:hover, header .navbar-collapse .nav-link:focus{
+    color: var(--tertiary-color);
 }
+
 
 /* hamburguesa */
 
@@ -25,14 +25,30 @@ header .navbar-toggler, header .navbar-toggler:focus, .navbar-toggler:active,
     box-shadow: none;
 }
 
+header .btn-primary:hover{
+    box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.75) inset;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.75) inset;
+    -moz-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.75) inset;
+}
+
 @media only screen and (max-width: 767px) {
+    header .nav-link{
+        padding: 7px 10px!important;
+    }
+    header .navbar-collapse{
+        margin-top:10px;
+    }
     header .btn-primary {
         margin:0px!important;
         padding: 10px!important;
         background-color:transparent!important;
     }
+    header .btn-primary:hover{
+        box-shadow: none;
+    }
     header .flag{
-        margin: 20px 10px!important;
+        justify-content: flex-end;
+        margin-bottom: 10px !important;
     }
 }
 
@@ -45,18 +61,26 @@ header .navbar-toggler, header .navbar-toggler:focus, .navbar-toggler:active,
 header .flag{
     display: flex;
     flex-direction: row;
-    gap:15px;
-    margin: 10px;
+    /* gap:15px; */
+    /* margin: 0px 10px; */
 }
 header .flag img{
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
     border-radius: 100%;
     cursor: pointer;
     transition: all 0.5s;
 }
+header .flag img:hover{
+    box-shadow: 0px 0px 10px 0px rgba(255,255,255,0.75);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(255,255,255,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(255,255,255,0.75);
+}
 
 header .flag img.active{
+    width: 40px;
+    height: 40px;
+    border:3px solid black;
     box-shadow: 0px 0px 10px 0px rgba(255,255,255,0.75);
     -webkit-box-shadow: 0px 0px 10px 0px rgba(255,255,255,0.75);
     -moz-box-shadow: 0px 0px 10px 0px rgba(255,255,255,0.75);
