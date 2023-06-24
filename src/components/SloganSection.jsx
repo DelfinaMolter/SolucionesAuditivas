@@ -4,7 +4,7 @@ import imgBgSloganMobile from './../assets/img/bg-slogan-mobile.png';
 
 function SloganSection(){
     return(
-        <div className="slogan">
+        <div className="slogan py-3 py-md-5" id="slogan">
             <div className='container'>
                 <div className='box-slogan'>
                     <picture>

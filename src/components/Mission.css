@@ -1,0 +1,16 @@
+.mission-content{
+    width: 25%;
+    text-align: center;
+    color:var(--primary-color)!important;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .mission-content{
+        width: 50%;
+        margin: 0px auto;
+    }
+    .mission-content img{
+        margin: 0px auto;
+    }
+}

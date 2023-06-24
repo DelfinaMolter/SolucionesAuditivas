@@ -15,6 +15,10 @@ header .navbar-collapse .nav-link:hover, header .navbar-collapse .nav-link:focus
     color: var(--tertiary-color);
 }
 
+header .navbar-brand img{
+    width: 210px;
+}
+
 
 /* hamburguesa */
 
@@ -25,12 +29,6 @@ header .navbar-toggler, header .navbar-toggler:focus, .navbar-toggler:active,
     box-shadow: none;
 }
 
-header .btn-primary:hover{
-    box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.75) inset;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.75) inset;
-    -moz-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.75) inset;
-}
-
 @media only screen and (max-width: 767px) {
     header .nav-link{
         padding: 7px 10px!important;
@@ -38,17 +36,17 @@ header .btn-primary:hover{
     header .navbar-collapse{
         margin-top:10px;
     }
-    header .btn-primary {
+    header .btn-secondary {
         margin:0px!important;
         padding: 10px!important;
         background-color:transparent!important;
     }
-    header .btn-primary:hover{
+    header .btn-secondary:hover{
         box-shadow: none;
     }
     header .flag{
-        justify-content: flex-end;
-        margin-bottom: 10px !important;
+        /* justify-content: flex-end; */
+        margin: 10px 0px !important;
     }
 }
 

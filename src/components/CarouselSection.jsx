@@ -1,47 +1,72 @@
-import Carousel from 'react-bootstrap/Carousel';
-import imgProduct1 from './../assets/img/product1.png';
-import imgProduct2 from './../assets/img/product2.png';
-import imgProduct3 from './../assets/img/product3.png';
+// import Carousel from 'react-bootstrap/Carousel';
+import CarouselItem from './CarouselItem';
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
+const products = [
+  {
+      imgDesktop:'/images/product1.png',
+      imgMobile:'/images/product1-mobile.png',
+      title:'Implantes Nucleus',
+      description:'Contamos con un abanico de implantes y electrodos para distintos tipos de hipoacusia y anatomía coclear.'
+  },
+  {
+    imgDesktop:'/images/product2.png',
+    imgMobile:'/images/product2-mobile.png',
+    title:'Implantes Nucleus',
+    description:'Contamos con un abanico de implantes y electrodos para distintos tipos de hipoacusia y anatomía coclear.'
+  },
+  {
+    imgDesktop:'/images/product3.png',
+    imgMobile:'/images/product3-mobile.png',
+    title:'Implantes Nucleus',
+    description:'Contamos con un abanico de implantes y electrodos para distintos tipos de hipoacusia y anatomía coclear.'
+  }
+]
+
+const sliderSettings = {
+  arrows: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  infinite: true,
+  lazyLoad: true,
+  autoplaySpeed: 5000,
+  autoplay: true,
+  centerMode:false,
+  dots:true,
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        arrows: false,
+      }
+    }
+  ]
+}
 
 function CarouselSection() {
   return (
-    <Carousel>
-      <Carousel.Item interval={5000}>
-        <img
-          className="d-block w-100"
-          src={imgProduct1}
-          alt="Foto"
-        />
-        {/* <Carousel.Caption>
-          <h3>Implantes Nucleus</h3>
-          <p>Contamos con un abanico de implantes y electrodos para distintos tipos de hipoacusia y anatomía coclear.</p>
-        </Carousel.Caption> */}
-      </Carousel.Item>
-      <Carousel.Item interval={500}>
-        <img
-          className="d-block w-100"
-          src={imgProduct2}
-          alt="Foto"
-        />
-        {/* <Carousel.Caption>
-          <h3>Procesador de sonido Baha - 6 Max</h3>
-          <p>Dispositivo de alta potencia que ofrece un excelente rendimiento auditivo a partir de un diseño pequeño y discreto.</p>
-        </Carousel.Caption> */}
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={imgProduct3}
-          alt="Foto"
-        />
-        {/* <Carousel.Caption>
-          <h3>Implantes Nucleus</h3>
-          <p>
-          Contamos con un abanico de implantes y electrodos para distintos tipos de hipoacusia y anatomía coclear.
-          </p>
-        </Carousel.Caption> */}
-      </Carousel.Item>
-    </Carousel>
+    <div>
+      <Slider {...sliderSettings}>
+        {products.map((product, index)=> <CarouselItem key={index} data={product}/>)}
+      </Slider>
+    </div>
+
+
+    
   );
 }
 

@@ -1,5 +1,19 @@
 main {
   overflow-x: hidden;
+  background-color: var(--tertiary-color);
+}
+
+.subtitle-producto{
+  text-transform: uppercase!important;
+  color: var(--secondary-color);
+  font-weight:bold;
+  text-align: center;
+}
+
+.title-producto{
+  color: var(--primary-color);
+  font-weight:bold;
+  text-align: center;
 }
 
 

@@ -1,0 +1,25 @@
+.google-section iframe{
+    width: 100%;
+}
+
+.google-section .google-footer{
+    position:relative;
+    top:-7px;
+    background-color: var(--secondary-color);
+    border-radius: 0 0 64px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+    padding: 15px 30px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 576px) {
+    .google-section .google-footer{
+        flex-direction: column;
+        gap:10px;
+        padding-top: 40px;
+        text-align: center;
+    }
+}
