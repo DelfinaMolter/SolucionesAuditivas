@@ -21,17 +21,18 @@ form .box-input{
     align-items:flex-start;
     width: 100%;
     color: var(--primary-color)!important;
-    margin: 10px;;
+    margin: 15px;;
 }
 form .box-input label{
     font-weight: bold;
-    padding-bottom: 5px;
+    padding-bottom: 3px;
 }
 form .box-input .input{
     border:none;
     border-bottom:1px solid var(--primary-color);
     width: 100%;
     background-color: var(--tertiary-color)!important;
+    padding: 4px 10px;
 }
 
 form .box-input .text-area{
