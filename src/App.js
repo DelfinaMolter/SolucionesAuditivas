@@ -6,12 +6,13 @@ import Header from './components/Header';
 import NosotrosSection from './components/NosotrosSection';
 import ProductSection from './components/ProductSection';
 import SloganSection from './components/SloganSection';
+import { LanguageProvider } from './utils/language.context';
 
 
 
 function App() {
   return (
-    <>
+    <LanguageProvider>
       <Header/>
       <main>
         <SloganSection/>
@@ -20,7 +21,7 @@ function App() {
         <GoogleSection/>
       </main>
       <Footer/>
-    </>
+      </LanguageProvider>
   );
 }
 

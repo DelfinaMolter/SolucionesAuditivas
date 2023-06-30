@@ -8,30 +8,27 @@ import './NavbarHeader.css';
 import { useState } from 'react';
 import Form from './Form';
 import ModalTemplate from './Modal';
+import useLanguage from '../utils/language.context';
 
 function NavbarHeader(){
-
+  const { language, setLanguage, t } = useLanguage();
   const [modalShow, setModalShow] = useState(false);
-  const [activeFlag, setActiveFlag] = useState('PAN')
-  const handleFlag= (value)=>{
-    setActiveFlag(value) 
-  }
 
     return(
       <div className="container">
         <Navbar collapseOnSelect expand={'md'} className="bg-body-tertiary mb-3" variant='dark'>
           <Container fluid>
-            <Navbar.Brand href="#slogan"><img src={imgLogo} alt="Logo" /></Navbar.Brand>
+            <Navbar.Brand href="#slogan"><img src={imgLogo} alt="Logo Soluciones Auditivas" /></Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end align-items-center   flex-grow-1">
               <Nav className="mr-auto align-items-start align-items-md-center">
-                <Nav.Link href="#nosotros">Nosotros</Nav.Link>
-                <Nav.Link href="#productos">Productos</Nav.Link>
-                <button className="btn btn-secondary" onClick={() => setModalShow(true)}>Contacto</button>
+                <Nav.Link href="#nosotros">{t('navigation.nosotros')}</Nav.Link>
+                <Nav.Link href="#productos">{t('navigation.productos')}</Nav.Link>
+                <button className="btn btn-secondary" onClick={() => setModalShow(true)}>{t('contacto')}</button>
               </Nav>
               <Nav className="flag align-items-center">
-                <Nav.Link href="#features"><img src={imgFlagPanama} alt="Panama Flag" className={activeFlag === 'PAN'? 'active': ''} onClick={()=>{handleFlag('PAN')}} /></Nav.Link>
-                <Nav.Link href="#features"><img src={imgFlagUSA} alt="USA Flag" className={activeFlag === 'USA' ? 'active': ''} onClick={()=>{handleFlag('USA')}} /></Nav.Link>
+                <Nav.Link onClick={() => setLanguage('SPANISH')}><img src={imgFlagPanama} alt="Idioma Español" className={language === 'SPANISH' ? 'active' : ''} /></Nav.Link>
+                <Nav.Link onClick={() => setLanguage('ENGLISH')}><img src={imgFlagUSA} alt="English language" className={language === 'ENGLISH' ? 'active' : ''}  /></Nav.Link>
               </Nav>
             </Navbar.Collapse>
             
