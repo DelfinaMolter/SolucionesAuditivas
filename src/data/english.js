@@ -16,7 +16,9 @@ const enTranslations = {
     'form.direccion':'Address',
     'form.telefono':'Phone',
     'form.mensaje':'Message',
+    'form.mensaje.error':'*Please complete this required field.',
     'form.submit':'Send',
+    'form.sending':'Sending...',
     'missions':[
         {
             img:'/images/vanguardia-icon.png',

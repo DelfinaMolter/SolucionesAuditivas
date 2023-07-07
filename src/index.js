@@ -8,12 +8,18 @@ import reportWebVitals from './reportWebVitals';
 
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ModalContextProvider } from './Hooks/ContextModal';
+import { ContextProvider } from './Hooks/ContextForm';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ModalContextProvider>
+      <ContextProvider>
+        <App />
+      </ContextProvider>
+    </ModalContextProvider>
   </React.StrictMode>
 );
 

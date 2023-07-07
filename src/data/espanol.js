@@ -16,7 +16,9 @@ const enTranslations = {
     'form.direccion':'Dirección',
     'form.telefono':'Teléfono',
     'form.mensaje':'Mensaje',
+    'form.mensaje.error':'*Por favor complete correctamente este campo.',
     'form.submit':'Enviar',
+    'form.sending':'Enviando...',
     'missions':[
         {
             img:'/images/vanguardia-icon.png',

@@ -5,14 +5,13 @@ import imgLogo from './../assets/img/logoHeader.png';
 import imgFlagPanama from './../assets/img/panama-flag.png';
 import imgFlagUSA from './../assets/img/usa-flag.png';
 import './NavbarHeader.css';
-import { useState } from 'react';
-import Form from './Form';
-import ModalTemplate from './Modal';
+
 import useLanguage from '../utils/language.context';
+import useModal from '../Hooks/ContextModal';
 
 function NavbarHeader(){
   const { language, setLanguage, t } = useLanguage();
-  const [modalShow, setModalShow] = useState(false);
+  const {  setModal } = useModal();
 
     return(
       <div className="container">
@@ -24,7 +23,7 @@ function NavbarHeader(){
               <Nav className="mr-auto align-items-start align-items-md-center">
                 <Nav.Link href="#nosotros">{t('navigation.nosotros')}</Nav.Link>
                 <Nav.Link href="#productos">{t('navigation.productos')}</Nav.Link>
-                <button className="btn btn-secondary" onClick={() => setModalShow(true)}>{t('contacto')}</button>
+                <button className="btn btn-secondary" onClick={() => setModal(true)}>{t('contacto')}</button>
               </Nav>
               <Nav className="flag align-items-center">
                 <Nav.Link onClick={() => setLanguage('SPANISH')}><img src={imgFlagPanama} alt="Idioma Español" className={language === 'SPANISH' ? 'active' : ''} /></Nav.Link>
@@ -34,12 +33,6 @@ function NavbarHeader(){
             
           </Container>
         </Navbar>
-        <ModalTemplate
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        >
-          <Form/>
-        </ModalTemplate>
 
       </div>
     )
