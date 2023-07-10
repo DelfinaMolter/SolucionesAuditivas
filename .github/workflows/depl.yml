@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         run: npm install
+      - name: sart the building
         run: CI='' npm run build
       - uses: jakejarvis/s3-sync-action@master
         with:
