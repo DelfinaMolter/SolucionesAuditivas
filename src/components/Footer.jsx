@@ -1,5 +1,5 @@
 import "./Footer.css";
-import imgLogo from './../assets/img/logo.svg';
+import imgLogo from './../assets/img/logotipo.png';
 import useLanguage from "../utils/language.context";
 import useModal from "../Hooks/ContextModal";
 
