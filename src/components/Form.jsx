@@ -7,19 +7,22 @@ import { useEffect, useRef, useState } from "react";
 import { sendEmail } from "../utils/sendEmail";
 import useGracias from "../Hooks/ContextGracias";
 // import useModal from "../Hooks/ContextModal";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Form() {
     const { t } = useLanguage();
     const dispatch = useDispatch()
 	const store = useStore()
 	const [loading, setloading] =useState(false)
+	const [recaptchaError, setRecaptchaError] =useState(null)
     // const [modalShow, setModalShow] = useState(false);
     const form = useRef();
+    const captcha = useRef(null);
     const { setGracias } = useGracias();
     // const {  setModal } = useModal();
 
 
-	const onChange = (e) => {
+	const onChangeInput = (e) => {
 		dispatch({
 			type: 'contact',
 			payload: {[e.target.name]: e.target.value}
@@ -35,6 +38,11 @@ function Form() {
 			payload: {[e.target.name]: e.target.value}
 		})
 	}
+    function onChange() {
+        if(captcha.current.getValue()){
+            setRecaptchaError(false)
+        }
+    }
 
     const validateForm = (store)=>{
         let success=0
@@ -73,10 +81,14 @@ function Form() {
 	const submitForm = (e) =>{
 		e.preventDefault();
 		if(validateForm(store)){
-			setloading(true);
-            sendEmail(form.current)
-            setGracias(true)
-            dispatch({type:'reset'})
+            if(captcha.current.getValue()){
+                console.log('El usuario no es un robot')
+                setloading(true);
+                sendEmail(form.current)
+                setGracias(true)
+            }else{
+                setRecaptchaError(true)
+            }
         }
 	}
 	useEffect(()=>{
@@ -98,7 +110,7 @@ function Form() {
                         value={store.data.name} 
                         placeholder="Escribí tu nombre completo." 
                         className={`input ${store.error.name ? 'error':''}`} 
-                        onChange={onChange}
+                        onChange={onChangeInput}
                         onBlur={onBlur}
                         autoFocus/>
                     <small className="error-msg ">{store.error.name? t('form.mensaje.error') : '' }</small>
@@ -112,7 +124,7 @@ function Form() {
                         value={store.data.email} 
                         placeholder="nombre@email.com" 
                         className={`input ${store.error.email ? 'error':''}`}
-                        onChange={onChange}
+                        onChange={onChangeInput}
                         onBlur={onBlur}/>
                     <small className="error-msg ">{store.error.email? t('form.mensaje.error') : '' }</small>
                 </div>
@@ -125,7 +137,7 @@ function Form() {
                         value={store.data.address} 
                         placeholder="Ingresá la dirección donde vivís." 
                         className='input'
-                        onChange={onChange}
+                        onChange={onChangeInput}
                         onBlur={onBlur}/>
                 </div>
                 <div className="box-input">
@@ -136,7 +148,7 @@ function Form() {
                         value={store.data.phone} 
                         placeholder="Ingresá tú número de teléfono." 
                         className={`input ${store.error.phone ? 'error':''}`}
-                        onChange={onChange}
+                        onChange={onChangeInput}
                         onBlur={onBlur}/>
                     <small className="error-msg ">{store.error.phone? t('form.mensaje.error') : '' }</small>
                 </div>
@@ -149,10 +161,16 @@ function Form() {
                         value={store.data.msg} 
                         placeholder="Escribinos tu mensaje." 
                         className={`input text-area ${store.error.msg ? 'error':''}`}
-                        onChange={onChange}
+                        onChange={onChangeInput}
                         onBlur={onBlur}></textarea>
                     <small className="error-msg ">{store.error.msg? t('form.mensaje.error') : '' }</small>
                 </div>
+                <ReCAPTCHA
+                    ref={captcha}
+                    sitekey="6LcLrUEnAAAAAPi6L3F1qO28YAiyl5UCZQGVa90n"
+                    onChange={onChange}
+                />
+                <small className="error-msg ">{recaptchaError? t('recaptchaError') : '' }</small>
                 <button className="btn btn-tertiary" disabled={loading} type="submit"> {loading? t('form.sending') : t('form.submit')}</button>
             </form>
             

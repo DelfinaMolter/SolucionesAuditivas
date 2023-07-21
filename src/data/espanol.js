@@ -35,7 +35,8 @@ const enTranslations = {
             title:'Innovación',
             description:'Adaptamos a los avances tecnológicos para proporcionar las mejores opciones a nuestros clientes.'
         }
-    ]
+    ],
+    'recaptchaError':'Por favor acepta el captcha.'
 };
 
 export default enTranslations;
