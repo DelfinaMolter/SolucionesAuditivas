@@ -1,18 +1,23 @@
 import "./Form.css";
 import useLanguage from "../utils/language.context";
 import { useDispatch, useStore } from "../Hooks/ContextForm";
-import { useEffect, useState } from "react";
-import ModalTemplate from "./Modal";
-import Gracias from "./Gracias";
-import useModal from "../Hooks/ContextModal";
+import { useEffect, useRef, useState } from "react";
+// import ModalTemplate from "./Modal";
+// import Gracias from "./Gracias";
+import { sendEmail } from "../utils/sendEmail";
+import useGracias from "../Hooks/ContextGracias";
+// import useModal from "../Hooks/ContextModal";
 
 function Form() {
     const { t } = useLanguage();
     const dispatch = useDispatch()
 	const store = useStore()
 	const [loading, setloading] =useState(false)
-    const [modalShow, setModalShow] = useState(false);
-    const {  setModal } = useModal();
+    // const [modalShow, setModalShow] = useState(false);
+    const form = useRef();
+    const { setGracias } = useGracias();
+    // const {  setModal } = useModal();
+
 
 	const onChange = (e) => {
 		dispatch({
@@ -65,23 +70,14 @@ function Form() {
     
     }
     
-	const submitForm = async (e) =>{
+	const submitForm = (e) =>{
 		e.preventDefault();
 		if(validateForm(store)){
 			setloading(true);
-            setTimeout(()=>{
-                setModalShow(true)
-                // setModal(false)
-            },1000 )
-			// if(await ApiForm(store)){
-			// 	setMsgError(false);
-			// 	myModal.show()
-			// 	dispatch({type:'reset'})
-			// }else{
-			// 	setMsgError(true)
-			// 	myModal.show()
-			// }
-		}
+            sendEmail(form.current)
+            setGracias(true)
+            dispatch({type:'reset'})
+        }
 	}
 	useEffect(()=>{
 		dispatch({type:'reset'})
@@ -90,7 +86,7 @@ function Form() {
 
     return (
         <>
-            <form>
+            <form ref={form} onSubmit={submitForm}>
                 <h6 className="subtitle-producto">{t('contacto')}</h6>
                 <h2 className="title-producto mb-4">{t('form.title')}</h2>
                 <div className="box-input">
@@ -157,14 +153,9 @@ function Form() {
                         onBlur={onBlur}></textarea>
                     <small className="error-msg ">{store.error.msg? t('form.mensaje.error') : '' }</small>
                 </div>
-                <button className="btn btn-tertiary" disabled={loading} onClick={(e)=>submitForm(e)} > {loading? t('form.sending') : t('form.submit')}</button>
+                <button className="btn btn-tertiary" disabled={loading} type="submit"> {loading? t('form.sending') : t('form.submit')}</button>
             </form>
-            <ModalTemplate
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                >
-                <Gracias/>
-            </ModalTemplate>
+            
         </>
     );
 }

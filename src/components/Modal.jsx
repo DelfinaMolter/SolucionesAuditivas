@@ -1,6 +1,5 @@
 import Modal from 'react-bootstrap/Modal';
 import './Modal.css';
-// autoFocus
 
 function ModalTemplate(props) {
   return (

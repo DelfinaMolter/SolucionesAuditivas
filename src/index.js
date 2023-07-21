@@ -10,16 +10,19 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ModalContextProvider } from './Hooks/ContextModal';
 import { ContextProvider } from './Hooks/ContextForm';
+import { ModalGraciasContextProvider } from './Hooks/ContextGracias';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ModalGraciasContextProvider>
     <ModalContextProvider>
       <ContextProvider>
         <App />
       </ContextProvider>
     </ModalContextProvider>
+    </ModalGraciasContextProvider>
   </React.StrictMode>
 );
 

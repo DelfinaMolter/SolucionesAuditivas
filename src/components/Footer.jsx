@@ -10,11 +10,11 @@ function Footer(){
 
     return(
 
-        <footer >
+        <footer className="py-4">
             <div className='container'>
                 <div className='d-flex justify-content-between align-items-start align-items-md-center gap-5'>
                     <img src={imgLogo} alt="Logo Soluciones Auditivas" className='d-none d-md-block my-4'/>
-                    <p className='d-none d-lg-block slogan'>{t('slogan')}<span>{t('slogan.bold')}</span>.</p>
+                    <p className='d-none d-lg-block m-lg-auto  slogan'>{t('slogan')}<span>{t('slogan.bold')}</span>.</p>
                     <div className='contact'>
                         <h5>
                             <a href='#contacto'  onClick={() => setModal(true)}>{t('contacto')}</a>
