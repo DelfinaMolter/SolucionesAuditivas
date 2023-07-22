@@ -1,4 +1,3 @@
-import "./NosotrosSection.css";
 import Mission from "./Mission";
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'

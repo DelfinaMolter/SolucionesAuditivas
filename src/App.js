@@ -1,6 +1,4 @@
-
 import './App.css';
-// import useModal from './Hooks/ContextModal';
 import Footer from './components/Footer';
 import GoogleSection from './components/GoogleSection';
 import Header from './components/Header';
@@ -10,19 +8,13 @@ import ProductSection from './components/ProductSection';
 import SloganSection from './components/SloganSection';
 import { LanguageProvider } from './utils/language.context';
 import Form from './components/Form';
-// import { useDispatch, useStore } from './Hooks/ContextModal';
 import Gracias from './components/Gracias';
 import useModal from './Hooks/ContextModal';
 import useGracias from './Hooks/ContextGracias';
 
-
-
-
 function App() {
   const { modal , setModal } = useModal();
   const { gracias , setGracias } = useGracias();
-  // const dispatch = useDispatch()
-	// const store = useStore()
 
   return (
     

@@ -9,10 +9,6 @@
   --secondary-bg:var(--secondary-color);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-  }
-} */
 
 * {
   box-sizing: border-box;
@@ -86,9 +82,3 @@ a {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(	0, 155, 85, 0.75) inset;
   -moz-box-shadow: 0px 0px 5px 0px rgba(	0, 155, 85, 0.75) inset;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */

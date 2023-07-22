@@ -1,7 +1,6 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 import translate from './language.services';
 
-
 const initialState = {
   language: 'SPANISH' 
 } ;

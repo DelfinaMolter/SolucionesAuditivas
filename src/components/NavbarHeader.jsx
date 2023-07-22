@@ -5,7 +5,6 @@ import imgLogo from './../assets/img/logoHeader.png';
 import imgFlagPanama from './../assets/img/panama-flag.png';
 import imgFlagUSA from './../assets/img/usa-flag.png';
 import './NavbarHeader.css';
-
 import useLanguage from '../utils/language.context';
 import useModal from '../Hooks/ContextModal';
 
@@ -30,7 +29,6 @@ function NavbarHeader(){
                 <Nav.Link onClick={() => setLanguage('ENGLISH')}><img src={imgFlagUSA} alt="English language" className={language === 'ENGLISH' ? 'active' : ''}  /></Nav.Link>
               </Nav>
             </Navbar.Collapse>
-            
           </Container>
         </Navbar>
 

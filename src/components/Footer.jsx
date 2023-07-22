@@ -4,12 +4,10 @@ import useLanguage from "../utils/language.context";
 import useModal from "../Hooks/ContextModal";
 
 function Footer(){
-
     const { t } = useLanguage();
     const {  setModal } = useModal();
 
     return(
-
         <footer className="py-4">
             <div className='container'>
                 <div className='d-flex justify-content-between align-items-start align-items-md-center gap-5'>

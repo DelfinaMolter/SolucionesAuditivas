@@ -1,6 +1,5 @@
 import useLanguage from "../utils/language.context";
 import CarouselSection from "./CarouselSection";
-import "./ProductSection.css";
 
 function ProductSection(){
     const { t } = useLanguage();

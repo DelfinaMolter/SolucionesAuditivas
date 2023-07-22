@@ -1,11 +1,7 @@
 import NavbarHeader from "./NavbarHeader";
 import './Header.css';
 
-
-
 function Header(){
-
-
 
     return(
         <header >

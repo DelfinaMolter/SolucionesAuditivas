@@ -1,4 +1,3 @@
-// import Carousel from 'react-bootstrap/Carousel';
 import CarouselItem from './CarouselItem';
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -64,9 +63,6 @@ function CarouselSection() {
         {products.map((product, index)=> <CarouselItem key={index} data={product}/>)}
       </Slider>
     </div>
-
-
-    
   );
 }
 

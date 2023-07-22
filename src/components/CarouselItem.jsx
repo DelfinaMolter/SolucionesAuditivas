@@ -1,6 +1,5 @@
 import "./CarouselItem.css";
 
-
 function CarouselItem({data}){
     return(
         <div className='carouselitem'>
@@ -12,7 +11,6 @@ function CarouselItem({data}){
                 />
             </picture>
         </div>
-
     )
 }
 
